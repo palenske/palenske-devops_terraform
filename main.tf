@@ -1,15 +1,3 @@
-variable "do_token" {
-  default = ""
-}
-
-variable "region" {
-  default = ""
-}
-
-variable "ssh_key_name" {
-  default = ""
-}
-
 terraform {
   required_providers {
     digitalocean = {
@@ -54,4 +42,16 @@ output "jenkins_ip" {
 resource "local_file" "foo" {
   content  = digitalocean_kubernetes_cluster.k8s.kube_config.0.raw_config
   filename = "kube_config.yaml"
+}
+
+variable "do_token" {
+  default = ""
+}
+
+variable "region" {
+  default = ""
+}
+
+variable "ssh_key_name" {
+  default = ""
 }
